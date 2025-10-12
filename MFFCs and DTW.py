@@ -47,7 +47,7 @@ print(f"Distância DTW Normalizada (som alvo 1 vs som diferente): {dtw_distance_
 print(f"Distância DTW Normalizada (som alvo 2 vs som diferente): {dtw_distance_14:.4f}")
 
 # Definição o Threshold.
-THRESHOLD = 40.8 # Valor a ser ajustado para casa caso(verificar após testes de valores com audios parecidos e diferentes)
+THRESHOLD = 40.8 # Valor a ser ajustado para caso a caso(verificar após testes de valores com audios parecidos e diferentes)
 
 if dtw_distance_12 < THRESHOLD:
     print("\nConclusão 1: Os dois primeiros sons são considerados IGUAIS.")
@@ -62,4 +62,5 @@ else:
 if dtw_distance_14 < THRESHOLD:
     print("Conclusão 2: O segundo e o terceiro som são considerados IGUAIS.")
 else:
+
     print("Conclusão 2: O segundo e o terceiro som são considerados DIFERENTES.")
