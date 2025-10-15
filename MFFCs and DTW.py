@@ -19,13 +19,12 @@ try:
 except FileNotFoundError:
     print("Caminho incorreto!")
 
-# Extrai os MFCCs (Mel-Frequency Cepstral Coefficients)
-# Usar os mesmos parâmetros para todas as extrações.
+# Extrai os MFCCs (Mel-Frequency Cepstral Coefficients),usar os mesmos parâmetros para todas as extrações.
 mfcc1 = feature.mfcc(y=y1, sr=sr1, n_mfcc=13)
 mfcc2 = feature.mfcc(y=y2, sr=sr2, n_mfcc=13)
 mfcc3 = feature.mfcc(y=y3, sr=sr3, n_mfcc=13)
 
-#Comparação 1: Dois sons que deveriam ser iguais.
+#Comparação 1: Audio 1 com audio 2
 # Calcula a matriz de custo e o caminho ótimo usando DTW
 D_12, wp_12 = sequence.dtw(X=mfcc1, Y=mfcc2, metric='euclidean')
 # A distância DTW normalizada é o último valor na matriz de custo acumulado
@@ -64,3 +63,4 @@ if dtw_distance_14 < THRESHOLD:
 else:
 
     print("Conclusão 2: O segundo e o terceiro som são considerados DIFERENTES.")
+
